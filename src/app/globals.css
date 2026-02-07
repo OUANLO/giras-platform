@@ -1,0 +1,323 @@
+/* Police Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS */
+:root {
+  --cnam-blue: #0072bc;
+  --cnam-green: #00a651;
+  --cnam-orange: #f7941d;
+  --giras-primary: #1a365d;
+  --giras-secondary: #2c5282;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations personnalisées */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marqueeSingle {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee-single {
+  animation: marqueeSingle 20s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Classes d'animation */
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out forwards;
+}
+
+/* Transitions hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus states accessibles */
+*:focus-visible {
+  outline: 2px solid var(--giras-primary);
+  outline-offset: 2px;
+}
+
+/* Tables */
+.table-hover-row:hover {
+  background: linear-gradient(90deg, rgba(26, 54, 93, 0.05) 0%, transparent 100%);
+}
+
+/* Boutons */
+.btn-primary {
+  @apply bg-gradient-to-r from-giras-primary-900 to-giras-primary-700 text-white 
+         px-4 py-2.5 rounded-xl font-medium transition-all duration-300
+         hover:shadow-lg hover:shadow-blue-900/20 hover:scale-[1.02]
+         focus:ring-2 focus:ring-giras-primary-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply bg-white border-2 border-gray-200 text-gray-700 
+         px-4 py-2.5 rounded-xl font-medium transition-all duration-300
+         hover:border-giras-primary-900 hover:text-giras-primary-900;
+}
+
+.btn-danger {
+  @apply bg-gradient-to-r from-red-500 to-red-600 text-white 
+         px-4 py-2.5 rounded-xl font-medium transition-all duration-300
+         hover:shadow-lg hover:shadow-red-500/20;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 
+         transition-all duration-300 hover:shadow-xl;
+}
+
+.card-hover {
+  @apply hover:scale-[1.02] hover:-translate-y-1;
+}
+
+/* Badges de statut */
+.badge {
+  @apply px-3 py-1 rounded-full text-xs font-medium border;
+}
+
+.badge-success {
+  @apply bg-emerald-100 text-emerald-700 border-emerald-200;
+}
+
+.badge-warning {
+  @apply bg-orange-100 text-orange-700 border-orange-200;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-700 border-red-200;
+}
+
+.badge-info {
+  @apply bg-blue-100 text-blue-700 border-blue-200;
+}
+
+.badge-neutral {
+  @apply bg-gray-100 text-gray-600 border-gray-200;
+}
+
+/* Inputs */
+.input {
+  @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm
+         transition-all duration-300 bg-white
+         hover:border-giras-primary-400
+         focus:ring-2 focus:ring-giras-primary-500 focus:border-transparent;
+}
+
+.input-disabled {
+  @apply bg-gray-100 text-gray-500 cursor-not-allowed;
+}
+
+/* Sidebar */
+.sidebar-item {
+  @apply w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium
+         transition-all duration-300;
+}
+
+.sidebar-item-active {
+  @apply bg-gradient-to-r from-giras-primary-900 to-giras-primary-700 text-white shadow-lg;
+}
+
+.sidebar-item-inactive {
+  @apply text-gray-600 hover:bg-gray-50 hover:text-giras-primary-900;
+}
+
+/* KPI Cards */
+.kpi-card {
+  @apply bg-white rounded-2xl p-5 shadow-sm border border-gray-100
+         transition-all duration-300 cursor-pointer
+         hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1;
+}
+
+/* Progress bars */
+.progress-bar {
+  @apply h-3 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full rounded-full transition-all duration-700 ease-out;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4 
+         bg-black/50 backdrop-blur-sm animate-fade-in;
+}
+
+.modal-content {
+  @apply bg-white rounded-2xl shadow-2xl max-h-[90vh] overflow-hidden animate-slide-up;
+}
+
+/* Tooltip */
+.tooltip {
+  @apply absolute z-50 px-2 py-1 text-xs font-medium text-white bg-gray-900 
+         rounded-lg shadow-lg whitespace-nowrap;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin h-5 w-5 border-2 border-gray-300 border-t-giras-primary-600 rounded-full;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+}
