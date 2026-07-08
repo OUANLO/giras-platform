@@ -1,0 +1,16 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/daily-reminder?secret=giras-cron-secret-2024",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/cron/pending-validations-daily?secret=giras-rappel-quotidien-2024",
+      "schedule": "30 8 * * *"
+    },
+    {
+      "path": "/api/cron/weekly-recap?secret=giras-cron-secret-2024",
+      "schedule": "30 8 * * 1"
+    }
+  ]
+}
