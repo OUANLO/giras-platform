@@ -1,0 +1,800 @@
+/* Police Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS */
+:root {
+  --cnam-blue: #0072bc;
+  --cnam-green: #00a651;
+  --cnam-orange: #f7941d;
+  --giras-primary: #1a365d;
+  --giras-secondary: #2c5282;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations personnalisées */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marqueeSingle {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee-single {
+  animation: marqueeSingle 20s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Classes d'animation */
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out forwards;
+}
+
+/* Transitions hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+
+/* Masquer les barres de défilement utilitaires */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus states accessibles */
+*:focus-visible {
+  outline: 2px solid var(--giras-primary);
+  outline-offset: 2px;
+}
+
+/* Tables */
+.table-hover-row:hover {
+  background: linear-gradient(90deg, rgba(26, 54, 93, 0.05) 0%, transparent 100%);
+}
+
+/* Boutons */
+.btn-primary {
+  @apply bg-gradient-to-r from-giras-primary-900 to-giras-primary-700 text-white 
+         px-4 py-2.5 rounded-xl font-medium transition-all duration-300
+         hover:shadow-lg hover:shadow-blue-900/20 hover:scale-[1.02]
+         focus:ring-2 focus:ring-giras-primary-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply bg-white border-2 border-gray-200 text-gray-700 
+         px-4 py-2.5 rounded-xl font-medium transition-all duration-300
+         hover:border-giras-primary-900 hover:text-giras-primary-900;
+}
+
+.btn-danger {
+  @apply bg-gradient-to-r from-red-500 to-red-600 text-white 
+         px-4 py-2.5 rounded-xl font-medium transition-all duration-300
+         hover:shadow-lg hover:shadow-red-500/20;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 
+         transition-all duration-300 hover:shadow-xl;
+}
+
+.card-hover {
+  @apply hover:scale-[1.02] hover:-translate-y-1;
+}
+
+/* Badges de statut */
+.badge {
+  @apply px-3 py-1 rounded-full text-xs font-medium border;
+}
+
+.badge-success {
+  @apply bg-emerald-100 text-emerald-700 border-emerald-200;
+}
+
+.badge-warning {
+  @apply bg-orange-100 text-orange-700 border-orange-200;
+}
+
+.badge-danger {
+  @apply bg-red-100 text-red-700 border-red-200;
+}
+
+.badge-info {
+  @apply bg-blue-100 text-blue-700 border-blue-200;
+}
+
+.badge-neutral {
+  @apply bg-gray-100 text-gray-600 border-gray-200;
+}
+
+/* Inputs */
+.input {
+  @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm
+         transition-all duration-300 bg-white
+         hover:border-giras-primary-400
+         focus:ring-2 focus:ring-giras-primary-500 focus:border-transparent;
+}
+
+.input-disabled {
+  @apply bg-gray-100 text-gray-500 cursor-not-allowed;
+}
+
+/* Sidebar */
+.sidebar-item {
+  @apply w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium
+         transition-all duration-300;
+}
+
+.sidebar-item-active {
+  @apply bg-gradient-to-r from-giras-primary-900 to-giras-primary-700 text-white shadow-lg;
+}
+
+.sidebar-item-inactive {
+  @apply text-gray-600 hover:bg-gray-50 hover:text-giras-primary-900;
+}
+
+/* KPI Cards */
+.kpi-card {
+  @apply bg-white rounded-2xl p-5 shadow-sm border border-gray-100
+         transition-all duration-300 cursor-pointer
+         hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1;
+}
+
+/* Progress bars */
+.progress-bar {
+  @apply h-3 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full rounded-full transition-all duration-700 ease-out;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4 
+         bg-black/50 backdrop-blur-sm animate-fade-in;
+}
+
+.modal-content {
+  @apply bg-white rounded-2xl shadow-2xl max-h-[90vh] overflow-hidden animate-slide-up;
+}
+
+/* Tooltip */
+.tooltip {
+  @apply absolute z-50 px-2 py-1 text-xs font-medium text-white bg-gray-900 
+         rounded-lg shadow-lg whitespace-nowrap;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin h-5 w-5 border-2 border-gray-300 border-t-giras-primary-600 rounded-full;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+}
+
+
+/* Responsive mobile platform-wide refinements */
+@media (max-width: 767px) {
+  .mobile-subrubric-layout {
+    flex-direction: column;
+    height: auto !important;
+    min-height: 100%;
+    gap: 0.75rem;
+  }
+
+  .mobile-subrubric-sidebar {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 0.75rem !important;
+  }
+
+  .mobile-subrubric-sidebar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .mobile-subrubric-content {
+    min-width: 0;
+    overflow: visible !important;
+    padding: 0.75rem !important;
+  }
+
+  table .sticky.left-0,
+  table .sticky.right-0,
+  thead .sticky.left-0,
+  thead .sticky.right-0,
+  tbody .sticky.left-0,
+  tbody .sticky.right-0 {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+  }
+
+  table .sticky.left-0.bg-white,
+  table .sticky.right-0.bg-white,
+  tbody .sticky.left-0.bg-white,
+  tbody .sticky.right-0.bg-white {
+    background: white !important;
+  }
+
+  .mobile-card-grid-2,
+  .mobile-card-grid-4,
+  .mobile-card-grid-5,
+  .mobile-card-grid-6,
+  .mobile-card-grid-8 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+
+@media (max-width: 767px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .mobile-subrubric-layout {
+    flex-direction: column;
+    height: auto !important;
+    min-height: 100%;
+    gap: 0.75rem;
+  }
+
+  .mobile-subrubric-sidebar {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 0.75rem !important;
+  }
+
+  .mobile-subrubric-sidebar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.625rem;
+  }
+
+  .mobile-subrubric-sidebar-grid > button {
+    min-height: 52px;
+    padding: 0.85rem 0.9rem !important;
+    border-radius: 0.9rem !important;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    align-items: center;
+  }
+
+  .mobile-subrubric-sidebar-grid > button span {
+    white-space: normal !important;
+    line-height: 1.2;
+  }
+
+  .mobile-subrubric-content {
+    min-width: 0;
+    overflow: visible !important;
+    padding: 0.75rem !important;
+  }
+
+  table .sticky,
+  thead.sticky,
+  tbody .sticky,
+  tr .sticky,
+  th.sticky,
+  td.sticky,
+  table [class*="sticky"] {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+  }
+
+  table [class*="sticky"] {
+    background: inherit !important;
+  }
+
+  table thead,
+  table thead tr {
+    background-color: #1a365d !important;
+    background-image: linear-gradient(90deg, #1a365d 0%, #2c5282 100%) !important;
+  }
+
+  table thead th {
+    background-color: inherit !important;
+    background-image: inherit !important;
+    color: #ffffff !important;
+    background-clip: padding-box;
+  }
+
+  table thead th > * {
+    color: inherit !important;
+  }
+
+  img,
+  video {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .giras-mobile-chart-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+  }
+
+  .giras-mobile-chart-inner {
+    min-width: 640px;
+  }
+
+  .giras-mobile-chart-scroll .recharts-wrapper,
+  .giras-mobile-chart-scroll .recharts-surface,
+  .giras-mobile-chart-scroll .recharts-responsive-container,
+  .giras-mobile-chart-scroll .recharts-responsive-container svg,
+  .giras-mobile-chart-scroll canvas,
+  .giras-mobile-chart-scroll svg,
+  .giras-mobile-chart-scroll img {
+    max-width: none !important;
+    height: auto !important;
+  }
+
+  .giras-mobile-chart-scroll .recharts-responsive-container {
+    min-width: 640px !important;
+  }
+
+  .recharts-responsive-container {
+    min-width: 0 !important;
+  }
+
+  .overflow-x-auto,
+  .overflow-y-auto,
+  .overflow-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .giras-mobile-carto-scroll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .giras-mobile-compare-scroll,
+  .giras-mobile-carto-table-scroll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .giras-mobile-compare-fields {
+    min-width: 700px;
+  }
+
+  .giras-mobile-carto-frame {
+    min-width: 720px;
+    min-height: 640px;
+  }
+
+  .giras-mobile-carto-table {
+    min-width: 760px;
+  }
+}
+
+
+/* Utilities for robust mobile horizontal scrolling without deformation */
+.mobile-inline-scroll {
+  width: 100%;
+}
+
+.mobile-inline-scroll > * {
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .mobile-inline-scroll {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    gap: 0.5rem;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-inline-scroll > * {
+    flex: 0 0 auto !important;
+  }
+
+  .mobile-inline-scroll.mobile-inline-scroll-wrap {
+    flex-wrap: wrap !important;
+  }
+
+  table thead th,
+  table thead td,
+  table thead th[class],
+  table thead td[class],
+  table thead [class*="bg-"],
+  table thead [style] {
+    background-color: #1a365d !important;
+    background-image: linear-gradient(90deg, #1a365d 0%, #2c5282 100%) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  table thead th *,
+  table thead td * {
+    color: #ffffff !important;
+  }
+
+  .giras-mobile-chart-scroll,
+  .giras-mobile-carto-scroll,
+  .giras-mobile-carto-table-scroll,
+  .giras-mobile-compare-scroll {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .giras-mobile-chart-inner,
+  .giras-mobile-carto-frame,
+  .giras-mobile-compare-fields,
+  .giras-mobile-carto-table {
+    width: max-content !important;
+  }
+
+  .giras-mobile-carto-frame {
+    min-width: 960px !important;
+    min-height: 640px;
+    align-items: flex-start;
+  }
+
+  .giras-mobile-chart-inner {
+    min-width: 640px !important;
+  }
+
+  .giras-mobile-compare-fields {
+    min-width: 760px !important;
+  }
+
+  .giras-mobile-carto-table {
+    min-width: 900px !important;
+  }
+
+  .mobile-no-shrink,
+  .mobile-no-shrink * {
+    min-width: 0;
+  }
+}
+
+
+/* GIRAS mobile hardening */
+@media (max-width: 767px) {
+  table thead,
+  table thead tr,
+  table thead th,
+  table thead td,
+  table thead th[class],
+  table thead td[class] {
+    background: linear-gradient(90deg, #1a365d 0%, #2c5282 100%) !important;
+    background-color: #1a365d !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  table thead th *,
+  table thead td * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  .mobile-inline-scroll {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    width: 100%;
+    gap: 0.5rem;
+    padding-bottom: 0.35rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-inline-scroll > * {
+    flex: 0 0 auto !important;
+    min-width: max-content;
+  }
+
+  .mobile-inline-scroll > .flex-1,
+  .mobile-inline-scroll > [class*="flex-1"] {
+    min-width: min(320px, calc(100vw - 2.5rem)) !important;
+    flex-basis: min(320px, calc(100vw - 2.5rem)) !important;
+  }
+
+  .mobile-inline-scroll input,
+  .mobile-inline-scroll select,
+  .mobile-inline-scroll textarea,
+  .mobile-inline-scroll button {
+    max-width: none !important;
+  }
+
+  .giras-mobile-carto-scroll {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .giras-mobile-carto-bundle {
+    width: max-content !important;
+    min-width: 980px !important;
+  }
+
+  .giras-mobile-carto-frame {
+    min-width: 980px !important;
+    width: max-content !important;
+    min-height: 640px;
+  }
+
+  .giras-mobile-carto-legend {
+    min-width: 980px !important;
+    width: max-content !important;
+  }
+
+  .giras-mobile-safe-box,
+  .giras-mobile-safe-box * {
+    min-width: 0;
+  }
+
+  .giras-mobile-safe-box {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .giras-mobile-chart-scroll {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    width: 100%;
+  }
+
+  .giras-mobile-chart-inner {
+    width: max-content !important;
+    min-width: 640px !important;
+  }
+
+  .giras-mobile-chart-scroll .recharts-wrapper,
+  .giras-mobile-chart-scroll .recharts-surface,
+  .giras-mobile-chart-scroll .recharts-responsive-container {
+    min-width: 640px !important;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .mobile-header-stack {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .mobile-header-stack > * {
+    width: 100%;
+  }
+
+  .mobile-header-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.5rem !important;
+  }
+
+  .mobile-header-actions > * {
+    flex: 0 0 auto;
+  }
+
+  .mobile-horizontal-scroll-box {
+    width: 100%;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+  }
+
+  .mobile-horizontal-scroll-box > .mobile-horizontal-scroll-inner {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .mobile-horizontal-scroll-box.mobile-horizontal-scroll-tight > .mobile-horizontal-scroll-inner {
+    min-width: max-content;
+  }
+}
