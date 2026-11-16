@@ -1,7 +1,7 @@
 # 🏢 GIRAS - Plateforme de Gestion des Risques
 
 ## Gestion Intégrée des Risques et des Activités Stratégiques
-### CNAM - Caisse Nationale d'Assurance Maladie de Côte d'Ivoire
+### CNAM - Caisse Nationale d'Assurance Maladie de Côte d'Ivoire 
 
 **Version actuelle :** 25.1 (23 janvier 2026)  
 **Nouveauté v25.1 :** 🐛 Correction synchronisation risques_probabilites - [Voir CHANGELOG.md](CHANGELOG.md)
